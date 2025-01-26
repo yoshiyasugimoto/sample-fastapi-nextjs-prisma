@@ -1,0 +1,51 @@
+services:
+  backend:
+    build:
+      context: ./backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+    depends_on:
+      - postgres
+    tty: true
+    command:
+      [
+        "poetry",
+        "run",
+        "gunicorn",
+        "-k",
+        "uvicorn.workers.UvicornWorker",
+        "app.server:app",
+        "--bind",
+        "0.0.0.0:8000",
+        "--access-logfile",
+        "-",
+      ]
+
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+      - node_modules:/app/node_modules
+    tty: true
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+      - WATCHPACK_POLLING=true
+
+  postgres:
+    image: postgres:14
+    volumes:
+      - postgres:/var/lib/postgresql/data
+      - ./postgres/initdb.d:/docker-entrypoint-initdb.d
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: deadbeef
+
+volumes:
+  node_modules:
+  postgres:

@@ -1,0 +1,39 @@
+**/.DS_Store
+**/*.log
+**/.vscode
+**/.env
+**/.envrc
+**/__work
+**/_temp
+
+# JS
+*.js
+!*.config.js
+!jest.config.js
+!.prettierrc.js
+!.eslintrc.js
+*.d.ts
+node_modules
+
+# Python
+*__pycache__
+*.pytest_cache
+.mypy_cache
+.venv
+.python-version
+
+# CDK asset staging directory
+.cdk.staging
+cdk.out
+
+.local
+app/tmp
+.coverage
+
+# Terraform
+**/.terraform/*
+**/*.tfstate
+**/*.tfstate.backup
+**/*.dot
+**/terraform.tfvars
+**/.terraform.lock.hcl
