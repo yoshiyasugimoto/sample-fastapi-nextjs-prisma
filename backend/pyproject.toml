@@ -7,25 +7,11 @@ package-mode = false
 
 [tool.poetry.dependencies]
 python = "^3.12"
-openai = "^1.59.4"
 fastapi = "^0.115.6"
-backoff = "^2.2.1"
-pandas = "^2.2.3"
-chardet = "^5.2.0"
-validators = "^0.34.0"
-azure-search-documents = "^11.5.2"
-azure-storage-blob = "^12.24.0"
-azure-storage-queue = "^12.12.0"
-azure-identity = "^1.19.0"
 gunicorn = "^23.0.0"
 uvicorn = "^0.34.0"
 sse-starlette = "^2.2.1"
 prisma = "^0.15.0"
-mypy-boto3-s3 = "^1.35.46"
-openpyxl = "^3.1.5"
-mypy-boto3-dynamodb = "^1.35.60"
-pynamodb = "^6.0.1"
-
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.3.4"

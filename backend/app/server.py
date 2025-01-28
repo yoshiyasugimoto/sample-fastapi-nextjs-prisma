@@ -1,10 +1,18 @@
+from contextlib import asynccontextmanager
 from logging import Filter, LogRecord, basicConfig, getLogger
 
 from fastapi import FastAPI
 
+from .database import db
 from .api.route import router
 
-app = FastAPI()
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    await db.connect()
+    yield
+    await db.disconnect()
+
+app = FastAPI(lifespan=lifespan)
 app.include_router(router)
 
 

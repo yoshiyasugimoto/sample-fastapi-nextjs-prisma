@@ -1,0 +1,16 @@
+datasource db {
+    provider     = "postgresql"
+    url          = "postgresql://postgres:deadbeef@postgres:5432/postgres"
+    relationMode = "prisma"
+}
+
+generator client {
+    provider             = "prisma-client-py"
+    interface            = "asyncio"
+    recursive_type_depth = "5"
+}
+
+model User {
+    id   String @id @default(uuid())
+    name String
+}

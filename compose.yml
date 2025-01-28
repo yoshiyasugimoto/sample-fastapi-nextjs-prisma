@@ -6,6 +6,8 @@ services:
       - "8000:8000"
     volumes:
       - ./backend:/app
+    environment:
+      DATABASE_URL: postgresql://postgres:deadbeef@postgres/postgres
     depends_on:
       - postgres
     tty: true
