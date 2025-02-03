@@ -1,6 +1,6 @@
 datasource db {
     provider     = "postgresql"
-    url          = "postgresql://postgres:deadbeef@postgres:5432/postgres"
+    url          = env("DATABASE_URL")
     relationMode = "prisma"
 }
 

@@ -15,14 +15,15 @@ services:
       [
         "poetry",
         "run",
-        "gunicorn",
-        "-k",
-        "uvicorn.workers.UvicornWorker",
+        "uvicorn",
         "app.server:app",
-        "--bind",
-        "0.0.0.0:8000",
-        "--access-logfile",
-        "-",
+        "--host",
+        "0.0.0.0",
+        "--port",
+        "8000",
+        "--reload",
+        "--log-level",
+        "info",
       ]
 
   frontend:
