@@ -1,0 +1,1 @@
+docker compose up && docker compose backend run prisma generate
