@@ -37,3 +37,7 @@ app/tmp
 **/*.dot
 **/terraform.tfvars
 **/.terraform.lock.hcl
+
+backend/prisma/
+
+!backend/prisma/schema.prisma
